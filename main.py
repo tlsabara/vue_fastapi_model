@@ -7,13 +7,15 @@ from api_core import ping_pong, root
 
 app = FastAPI()
 
-app.add_api_route("/", root.global_route, methods=['get', 'post'])
+app.add_api_route("/", root.global_route, methods=['get', 'post', 'put', 'delete'])
+app.add_api_route("/api", root.global_route, methods=['get', 'post', 'put', 'delete'])
 
 API_VERSION = '/api/v1'
 API_MAIN_VERSION = API_VERSION
 
 app.add_api_route(API_MAIN_VERSION + "/ping", ping_pong.route_get, methods=['get'])
-# app.add_api_route(API_MAIN_VERSION + "/ping/{word}", ping_pong.route_get, methods=['get'])
+app.add_api_route(API_MAIN_VERSION + "/ping", ping_pong.route_post, methods=['post'])
+app.add_api_route(API_MAIN_VERSION + "/ping/{word}", ping_pong.route_get, methods=['get'])
 app.add_api_route(API_MAIN_VERSION + "/ping/{word}", ping_pong.route_post, methods=['post'])
 
 
