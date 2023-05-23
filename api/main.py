@@ -1,14 +1,12 @@
-from datetime import datetime
-
 import uvicorn
-from fastapi import FastAPI, APIRouter, HTTPException, status
+from fastapi import FastAPI
 
 from api_core import ping_pong, root
 
 app = FastAPI()
 
 app.add_api_route("/", root.global_route, methods=['get', 'post', 'put', 'delete'])
-app.add_api_route("/api", root.global_route, methods=['get', 'post', 'put', 'delete'])
+app.add_api_route("", root.global_route, methods=['get', 'post', 'put', 'delete'])
 
 API_VERSION = '/api/v1'
 API_MAIN_VERSION = API_VERSION
