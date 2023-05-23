@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.1.3 (2023-05-22)
+### Feature
+* Add version on api responses ([`c4b4350`](https://github.com/tlsabara/vue_fastapi_model/commit/c4b4350ec01f77fc9dcbc0f7a2e6f6c3a0c2bf4e))
+
 ## v0.1.2 (2023-05-22)
 
 
