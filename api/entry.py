@@ -3,7 +3,7 @@ from fastapi import FastAPI
 import os
 from api_core import ping_pong, root
 
-__version__ = "0.1.3"
+__version__ = "0.1.4"
 os.environ["API_VERSION"] = __version__
 
 app = FastAPI()
