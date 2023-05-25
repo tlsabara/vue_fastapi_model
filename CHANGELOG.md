@@ -2,6 +2,9 @@
 
 <!--next-version-placeholder-->
 
+## v0.1.5 (2023-05-24)
+
+
 ## v0.1.4 (2023-05-23)
 ### Feature
 * Version and responses ([`d82b1cb`](https://github.com/tlsabara/vue_fastapi_model/commit/d82b1cbd061351fdba39df9ffabc283c960b6fc7))
