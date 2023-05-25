@@ -1,21 +1,33 @@
-import uvicorn
-from fastapi import FastAPI
 import os
-from api_core import ping_pong, root
+import uvicorn
+from dotenv import load_dotenv
+from fastapi import FastAPI
+from pydantic import BaseSettings
 
+from api.api_core import ping_pong, root
+
+load_dotenv() # load_dotenv no lugar do decouple.config por conta do desuso
 __version__ = "0.1.4"
-os.environ["API_VERSION"] = __version__
+os.environ["APP_VERSION"] = __version__
 
-app = FastAPI()
+homolog_or_test = os.environ.get('DEV_ENV') or os.environ.get('TEST_ENV')
 
-app.add_api_route("/", root.global_route, methods=['get', 'post', 'put', 'delete'], tags=[__version__])
-app.add_api_route("", root.global_route, methods=['get', 'post', 'put', 'delete'], tags=[__version__])
 
-API_VERSION = '/api/v1'
-API_MAIN_VERSION = API_VERSION
+class Settings(BaseSettings):
+    openapi_url: str = "/openapi.json" if homolog_or_test else ''
 
-app.add_api_route(API_MAIN_VERSION + "/ping", ping_pong.route_get, methods=['get'], tags=[__version__])
-app.add_api_route(API_MAIN_VERSION + "/ping", ping_pong.route_post, methods=['post'], tags=[__version__])
+
+settings = Settings()
+app = FastAPI(openapi_url=settings.openapi_url)
+
+API_VERSION = 'v1'
+API_MAIN_VERSION = f'/api/{API_VERSION}'
+os.environ['API_VERSION'] = API_VERSION
+
+app.add_api_route("/", root.global_route, methods=['get', 'post', 'put', 'delete'])
+
+app.add_api_route(API_MAIN_VERSION + "/ping", ping_pong.route_get, methods=['get'])
+app.add_api_route(API_MAIN_VERSION + "/ping", ping_pong.route_post, methods=['post'])
 app.add_api_route(API_MAIN_VERSION + "/ping/{word}", ping_pong.route_get, methods=['get'])
 # app.add_api_route(API_MAIN_VERSION + "/ping/{word}", ping_pong.route_post, methods=['post'])
 

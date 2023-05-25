@@ -1,33 +1,33 @@
-import os
-from pydantic import BaseModel
+from api.api_core.bases.on_request import PingPongRequestBody
+from api.api_core.bases.on_response import DefaulApiResponse
 
 
-class PingPongResponse(BaseModel):
-    word: str
-
-
-async def route_post(body_request:PingPongResponse):
-    """Função rota de post do ping pong, com parâmetros não obrigatórios
+async def route_post(body_request: PingPongRequestBody) -> DefaulApiResponse:
+    """Função rota de post do ping pong, com parâmetros não obrigatórios, mas com um body obrigatíório
     """
+    if body_request.song.upper() == 'PING':
+        data_ = f'Pong ! ! !\n para o jogador: {body_request.name}'
+    else:
+        data_ = 'Invalid Song!'
+    return DefaulApiResponse(message=data_)
 
-    return {"message": "PONG", "method": "POST", 'word': body_request.word, "version": os.environ.get('API_VERSION')}
 
-
-async def route_get(word=None):
+async def route_get(word=None) -> DefaulApiResponse:
     """Função para a rota de get do ping pong, com parâmetros não obrigatórios
     """
-    dict_1 = {"message": "PONG", "method": "GET", "version": os.environ.get('API_VERSION')}
-    return dict_1 if not word else {"message": "PONG", "method": "GET", "word": word,
-                                    "version": os.environ.get('API_VERSION')}
+    data_ = 'PONG'
+    return DefaulApiResponse(message=data_).set_method('GET')
 
 
-async def route_put():
+async def route_put() -> DefaulApiResponse:
     """Função para a rota de put do ping pong, sem parâmetros
     """
-    return {"message": "PONG", "method": "PUT", "version": os.environ.get('API_VERSION')}
+    data_ = 'PONG'
+    return DefaulApiResponse(message=data_).set_method('PUT')
 
 
-async def route_delete():
+async def route_delete() -> DefaulApiResponse:
     """Função para a rota de delete do ping pong, sem parâmetros
     """
-    return {"message": "PONG", "method": "DELETE", "version": os.environ.get('API_VERSION')}
+    data_ = 'PONG'
+    return DefaulApiResponse(message=data_).set_method('DELETE')
