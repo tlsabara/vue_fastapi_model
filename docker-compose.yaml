@@ -1,0 +1,12 @@
+version: '3.3'
+services:
+  fastapi:
+    build: .
+    ports:
+      - "8000:8000"
+    restart: always
+    volumes:
+      - "./docker/api:/home/app_ping/"
+    environment:
+      - DEV_ENV=True
+      - TEST_ENV=True
