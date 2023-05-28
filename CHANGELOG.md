@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.2.0 (2023-05-28)
+### Feature
+* Add put and delete for ping route ([`f4c1dfb`](https://github.com/tlsabara/vue_fastapi_model/commit/f4c1dfbb3b374ba86144bd5d923e5ffe50f81082))
+
 ## v0.1.5 (2023-05-24)
 
 
