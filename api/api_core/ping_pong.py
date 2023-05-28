@@ -11,7 +11,7 @@ async def route_post(body_request: PingPongRequestBody) -> DefaulApiResponse:
         data_ = f'Pong ! ! !\n para o jogador: {body_request.name}'
     else:
         data_ = 'Invalid Song!'
-    return DefaulApiResponse(message=data_).set_method('POST')
+    return DefaulApiResponse(message=data_).set_http_method('POST')
 
 
 async def route_get(word=None) -> DefaulApiResponse:
@@ -20,14 +20,14 @@ async def route_get(word=None) -> DefaulApiResponse:
     word_is_str = type(word) is str
     word_is_ping = word.upper() == 'PING' or word.upper() == 'P1NG'
     data_ = 'PONG' if word_is_ping and word_is_str else 'Invalid Song!'
-    return DefaulApiResponse(message=data_).set_method('GET')
+    return DefaulApiResponse(message=data_).set_http_method('GET')
 
 
 async def route_put(body_request: PingPongRequestBody) -> DefaulApiResponse:
     """Função para a rota de put do ping pong, sem parâmetros
     """
     data_ = f'{body_request.song.upper()} its your song! ! !'
-    return DefaulApiResponse(message=data_).set_method('PUT')
+    return DefaulApiResponse(message=data_).set_http_method('PUT')
 
 
 async def route_delete(body_request: PingPongRequestBody) -> DefaulApiResponse:
@@ -35,4 +35,4 @@ async def route_delete(body_request: PingPongRequestBody) -> DefaulApiResponse:
     """
     check = (randint(1, 999) % 5) == 0
     data_ = 'DELETED........... ' if check else 'Try again....'
-    return DefaulApiResponse(message=data_).set_method('DELETE')
+    return DefaulApiResponse(message=data_).set_http_method('DELETE')

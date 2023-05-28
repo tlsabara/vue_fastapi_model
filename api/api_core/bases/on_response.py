@@ -20,7 +20,7 @@ class BaseApiResponse(BaseModel):
         })
         super().__init__(**data)
 
-    def set_method(self, vlr:str):
+    def set_http_method(self, vlr:str):
         self.method = vlr
         return self
 

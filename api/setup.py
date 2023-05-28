@@ -1,6 +1,5 @@
 from setuptools import setup
-from entry import __version__
-
+from versions import __version__
 
 setup(
    name="myapi",
