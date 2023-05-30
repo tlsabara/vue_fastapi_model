@@ -8,5 +8,3 @@ services:
       - DEV_ENV=${DEV_ENV}
       - TEST_ENV=${TEST_ENV}
       - COMPOSER=True
-#    command:
-#      - uvicorn --port 8000 --app-dir /code api.entry:app
