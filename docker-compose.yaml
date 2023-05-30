@@ -1,14 +1,12 @@
-version: '3.3'
+version: '3.8'
 services:
   fastapi:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: .
     ports:
       - "8000:8000"
-    restart: always
-    volumes:
-      - "./docker/api:/home/app_ping/"
     environment:
-      - DEV_ENV=True
-      - TEST_ENV=True
+      - DEV_ENV=${DEV_ENV}
+      - TEST_ENV=${TEST_ENV}
+      - COMPOSER=True
+#    command:
+#      - uvicorn --port 8000 --app-dir /code api.entry:app

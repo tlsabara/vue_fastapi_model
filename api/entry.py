@@ -10,7 +10,7 @@ load_dotenv()  # load_dotenv no lugar do decouple.config por conta do desuso
 __version__ = "0.3.0"
 os.environ["APP_VERSION"] = __version__
 
-homolog_or_test = os.environ.get("DEV_ENV") or os.environ.get("TEST_ENV")
+homolog_or_test = os.environ.get("DEV_ENV") == 'True' or os.environ.get("TEST_ENV") == 'True'
 
 
 class Settings(BaseSettings):
