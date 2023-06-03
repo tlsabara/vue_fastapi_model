@@ -23,7 +23,7 @@ class BaseApiResponse(BaseModel):
     def __init__(self, **data: Any):
         data.update(
             {
-                "time": datetime.now(),
+                "time_at": datetime.now(),
                 "api_version": os.environ.get("API_VERSION"),
                 "app_version": os.environ.get("APP_VERSION"),
             }
