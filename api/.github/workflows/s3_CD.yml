@@ -1,9 +1,6 @@
-
 name: Upload to S3
-
 on:
   pull_request:
-    branches: [ "main" ]
     types: [ closed ]
 
 permissions:
@@ -14,9 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: echo PR ${{ github.event.number }} has been merged
-    - uses: actions/checkout@master
-    - uses: shallwefootball/s3-upload-action@master
-      name: Upload S3
+    - name: Upload S3
+      uses: shallwefootball/s3-upload-action@master
       with:
         aws_key_id: ${{secrets.AWS_KEY_ID}}
         aws_secret_access_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
