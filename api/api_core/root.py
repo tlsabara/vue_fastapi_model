@@ -2,7 +2,7 @@ from fastapi import Response, status
 
 
 def global_route(response: Response):
-    """Just for commit2"""
+    """Just for commit3"""
     response.status_code = status.HTTP_403_FORBIDDEN
     return {
         "message": "invalid_resource",
