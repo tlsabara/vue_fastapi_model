@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: echo PR ${{ github.event.number }} has been merged
-    - run: ll > dmp_
+    - run: ls > dmp_
     - run: cat dmp_ 
     - name: Upload S3
       id: S3
