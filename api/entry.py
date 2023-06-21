@@ -7,7 +7,7 @@ from pydantic import BaseSettings
 from api.api_core import ping_pong, root
 
 load_dotenv()  # load_dotenv no lugar do decouple.config por conta do desuso
-__version__ = "0.3.0"
+__version__ = "0.4.0-beta.1"
 os.environ["APP_VERSION"] = __version__
 
 homolog_or_test = os.environ.get("DEV_ENV") == 'True' or os.environ.get("TEST_ENV") == 'True'
