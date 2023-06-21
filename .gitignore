@@ -3,3 +3,9 @@
 .pytest_cache
 /.pytest_cache/
 **/.pytest_cache/
+/.idea/misc.xml
+/.idea/inspectionProfiles/profiles_settings.xml
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/vcs.xml
+/.idea/workspace.xml
+/.idea/vue_fastapi_model.iml
