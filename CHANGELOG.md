@@ -2,6 +2,9 @@
 
 <!--next-version-placeholder-->
 
+## v0.4.0 (2023-06-21)
+
+
 ## v0.4.0-beta.1 (2023-06-21)
 ### Feature
 * Create test for pipeline ([`7d96c6e`](https://github.com/tlsabara/vue_fastapi_model/commit/7d96c6e6f2197e88e7be046edb0119b7cb337c7a))
