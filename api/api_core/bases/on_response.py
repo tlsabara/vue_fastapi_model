@@ -7,39 +7,33 @@ from abc import ABC
 sb_type = list | dict | float | str  # sb sou eu.
 
 
-class DefaultMethods(ABC):
-    def __init__(self):
-        raise NotImplementedError("this class can't be instanced.")
-
-    ACCEPTED_METHODS = ["GET", "PUT", "POST", "DELETE"]
-
-
 class BaseApiResponse(BaseModel):
     time_at: datetime
     api_version: str
     app_version: str
-    method: str = "unknown method"
+    data: sb_type
 
-    def __init__(self, **data: Any):
-        data.update(
+    def __init__(self, **kwargs: any):
+        msg_ = kwargs.get("msg", "")
+        data_ = kwargs.get("data", "")
+
+        kwargs.update(
             {
                 "time_at": datetime.now(),
                 "api_version": os.environ.get("API_VERSION"),
                 "app_version": os.environ.get("APP_VERSION"),
+                "msg": msg_,
+                "data": data_
             }
         )
-        super().__init__(**data)
-
-    def set_http_method(self, vlr: str):
-        if vlr not in DefaultMethods.ACCEPTED_METHODS:
-            raise ValueError("Method Invalid.")
-        self.method = vlr
-        return self
+        super().__init__(**kwargs)
 
 
 class DefaulApiResponse(BaseApiResponse):
-    message: sb_type
+    msg: sb_type
 
 
-class ApiResposeAuthToken(BaseApiResponse):
+class ApiResposeAuthToken(DefaulApiResponse):
     token: str
+
+

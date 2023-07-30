@@ -16,4 +16,4 @@ RUN pip install fastapi uvicorn
 
 EXPOSE 8000
 EXPOSE 80
-CMD uvicorn api.entry:app --host 0.0.0.0 --port 8000
+CMD uvicorn api.application:app --host 0.0.0.0 --port 8000
