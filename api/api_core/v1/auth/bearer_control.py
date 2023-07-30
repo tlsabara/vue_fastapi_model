@@ -16,13 +16,13 @@ class ApiBearer(HTTPBearer):
             if not credentials.scheme == "Bearer":
                 raise HTTPException(
                     status_code=status.HTTP_403_FORBIDDEN,
-                    detail="Invalid authentication method"
+                    detail="invalid auth method"
                 )
 
             if not self.ckeck(credentials.credentials):
                 raise HTTPException(
                     status_code=status.HTTP_401_UNAUTHORIZED,
-                    detail="Invalid token or expired token")
+                    detail="invalid token")
 
             return credentials.credentials
         else:

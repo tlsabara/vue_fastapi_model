@@ -9,7 +9,7 @@ SECRET = os.environ.get("APP_SECURITY_KEY")
 
 def generate_jwt():
     data_ = {
-        "valid_true": str(datetime.now() + timedelta(hours=4)),
+        "valid_true": str(datetime.now() + timedelta(minutes=1)),
         "resources": {
             "groups": ["get", "post"],
             "users": ["get"]
@@ -17,7 +17,7 @@ def generate_jwt():
     }
 
     return jwe.encrypt(
-        json.dumps(data_),
+        json.dumps(data_).encode("utf-8"),
         SECRET,
         algorithm="dir",
         encryption='A256GCM'
