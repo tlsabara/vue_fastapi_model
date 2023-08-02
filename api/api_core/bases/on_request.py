@@ -9,3 +9,7 @@ class PingPongRequestBody(BaseModel):
 class AuthRequestBody(BaseModel):
     access_id: str
     access_key: str
+
+
+class TwiceRequestBody(BaseModel):
+    number: int

@@ -8,6 +8,7 @@ from pydantic import BaseSettings
 from api.api_core import ping_pong, root
 from api.api_core.v1.auth import http_auth as v1_auth
 from api.api_core.v1.auth.bearer_control import ApiBearer
+from api.api_core.v1 import twice as v1_twice
 
 load_dotenv()
 
@@ -40,6 +41,8 @@ app.add_api_route("/v1/ping", ping_pong.route_delete, methods=["delete"])
 
 app.add_api_route("/v1/auth", v1_auth.on_get, methods=["get"], dependencies=[Depends(ApiBearer())])
 app.add_api_route("/v1/auth", v1_auth.on_post, methods=["post"])
+
+app.add_api_route("/v1/calcs/twice", v1_twice.route_post, methods=["post"], dependencies=[Depends(ApiBearer())])
 
 if __name__ == "__main__":
     logging.info(f'API on air! vs: {os.environ.get("API_VERSION")}')
