@@ -32,22 +32,16 @@ app = FastAPI(
 API_VERSION = "v1"
 os.environ["API_VERSION"] = API_VERSION
 
-app.add_api_route("/v1/hello", root.global_route, methods=["get"], dependencies=[Depends(ApiBearer())])
+app.add_api_route("/v1/hello", root.rota_teste, methods=["get"])
 
-app.add_api_route("/v1/ping", ping_pong.route_post, methods=["post"])
-app.add_api_route("/v1/ping/{word}", ping_pong.route_get, methods=["get"])
-app.add_api_route("/v1/ping", ping_pong.route_put, methods=["put"])
-app.add_api_route("/v1/ping", ping_pong.route_delete, methods=["delete"])
+app.add_api_route("/v1/auth", v1_auth.generate_auth_token, methods=["post"])
 
-app.add_api_route("/v1/auth", v1_auth.on_get, methods=["get"], dependencies=[Depends(ApiBearer())])
-app.add_api_route("/v1/auth", v1_auth.on_post, methods=["post"])
+app.add_api_route("/v1/ping", ping_pong.route_post, methods=["post"], dependencies=[Depends(ApiBearer())])
+app.add_api_route("/v1/ping/{word}", ping_pong.route_get, methods=["get"], dependencies=[Depends(ApiBearer())])
+app.add_api_route("/v1/ping", ping_pong.route_put, methods=["put"], dependencies=[Depends(ApiBearer())])
+app.add_api_route("/v1/ping", ping_pong.route_delete, methods=["delete"], dependencies=[Depends(ApiBearer())])
+
+
 
 app.add_api_route("/v1/calcs/twice", v1_twice.route_post, methods=["post"], dependencies=[Depends(ApiBearer())])
 
-if __name__ == "__main__":
-    logging.info(f'API on air! vs: {os.environ.get("API_VERSION")}')
-    uvicorn.run(
-        app="application:app",
-        host="127.0.0.1",
-        reload=True
-    )

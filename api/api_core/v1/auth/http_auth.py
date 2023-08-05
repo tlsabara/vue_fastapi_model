@@ -9,15 +9,7 @@ from api.api_core.bases.on_response import DefaulApiResponse, ApiResposeAuthToke
 from api.api_core.v1.utils import generate_jwt
 
 
-def on_get() -> DefaulApiResponse:
-    """Rota de resposta teste da aplicação."""
-    response = Response()
-    response.status_code = status.HTTP_200_OK
-    data_ = {"body": "use POST dummy!", "status": "ok", "app_code": 200}
-    return DefaulApiResponse(data=data_, msg="warning")
-
-
-async def on_post(body_request: AuthRequestBody) -> ApiResposeAuthToken | DefaulApiResponse:
+async def generate_auth_token(body_request: AuthRequestBody) -> ApiResposeAuthToken | DefaulApiResponse:
     """Rota de autenticação
 
     Gera um token para uso do sistema.
