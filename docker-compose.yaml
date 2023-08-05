@@ -2,6 +2,8 @@ version: '3.8'
 services:
   fastapi:
     build: .
+    container_name: pingpong_api
+    image: tlsabara/pingpon_api:latest
     ports:
       - "8000:8000"
     environment:
