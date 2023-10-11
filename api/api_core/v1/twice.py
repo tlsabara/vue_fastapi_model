@@ -1,13 +1,12 @@
-import logging
+from typing import Any
 
-from fastapi import HTTPException, status, logger
+from fastapi import HTTPException, status, logger, Path
 
 from api.api_core.bases.on_response import DefaulApiResponse
 from api.api_core.bases.on_request import TwiceRequestBody
-from api_core.bases.on_response import DefaulApiResponse
 
 
-async def route_post(body_request: TwiceRequestBody) -> DefaulApiResponse | HTTPException:
+async def route_post(body_request: TwiceRequestBody) -> Any:
     """POST Route, to multiply a number
     """
     logger.logger.info(f"request: passou aqui")
@@ -20,3 +19,9 @@ async def route_post(body_request: TwiceRequestBody) -> DefaulApiResponse | HTTP
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="number is 0"
         )
+
+
+async def route_get(number: int = Path(gt=0)) -> DefaulApiResponse:
+    return DefaulApiResponse(
+        msg=f"valor: {number*2}"
+    )

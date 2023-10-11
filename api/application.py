@@ -48,3 +48,4 @@ app.add_api_route("/v1/ping", ping_pong.route_delete, methods=["delete"], depend
 
 ## Math Routes
 app.add_api_route("/v1/calcs/twice", v1_twice.route_post, methods=["post"], dependencies=[Depends(ApiBearer())])
+app.add_api_route("/v1/calcs/twice/{number}", v1_twice.route_get, methods=["get"], dependencies=[Depends(ApiBearer())])
