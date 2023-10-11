@@ -10,9 +10,9 @@ from api.api_core.v1.utils import generate_jwt
 
 
 async def generate_auth_token(body_request: AuthRequestBody) -> ApiResposeAuthToken | DefaulApiResponse:
-    """Rota de autenticação
+    """Authentication Route
 
-    Gera um token para uso do sistema.
+    Generate authentication tokens for API
     """
     if body_request.access_id != body_request.access_key:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="wrong credentials")

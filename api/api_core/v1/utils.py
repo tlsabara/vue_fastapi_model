@@ -7,7 +7,9 @@ from jose import jwe
 SECRET = os.environ.get("APP_SECURITY_KEY")
 
 
-def generate_jwt():
+def generate_jwt() -> bytes:
+    """Function to generate a JWE token for authenticaiton
+    """
     data_ = {
         "valid_true": str(datetime.now() + timedelta(minutes=1)),
         "resources": {
@@ -24,7 +26,9 @@ def generate_jwt():
     )
 
 
-def decode_jwe(jwt):
+def decode_jwe(jwt) -> dict:
+    """Function to decrypt a JWE authenticaion token
+    """
     data = jwe.decrypt(
         jwt,
         SECRET

@@ -7,6 +7,10 @@ from api.api_core.v1.utils import decode_jwe
 
 
 class ApiBearer(HTTPBearer):
+    """Authentication Handler class
+
+    This class operates in all routes whera a authentication bearer its required.
+    """
     def __init__(self, auto_error: bool = True):
         super().__init__(auto_error=auto_error)
 
@@ -32,6 +36,10 @@ class ApiBearer(HTTPBearer):
             )
 
     def ckeck(self, jwtoken: str) -> bool:
+        """Method to validate a authentication token
+
+        TODO: shold be validate access resources here??
+        """
         try:
             payload = decode_jwe(jwtoken)
         except Exception as e:

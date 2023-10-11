@@ -8,6 +8,8 @@ sb_type = list | dict | float | str  # sb sou eu.
 
 
 class BaseApiResponse(BaseModel):
+    """This a class base for all requests bodies
+    """
     time_at: datetime
     api_version: str
     app_version: str
@@ -30,10 +32,16 @@ class BaseApiResponse(BaseModel):
 
 
 class DefaulApiResponse(BaseApiResponse):
+    """Its a basic api response
+
+    All response in this system shold be like this
+    """
     msg: sb_type
 
 
 class ApiResposeAuthToken(DefaulApiResponse):
+    """Body for response having a authentication token on body
+    """
     token: str
 
 

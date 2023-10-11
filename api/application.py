@@ -32,16 +32,19 @@ app = FastAPI(
 API_VERSION = "v1"
 os.environ["API_VERSION"] = API_VERSION
 
+# Routes to check server status
 app.add_api_route("/v1/hello", root.rota_teste, methods=["get"])
 
+# Routes to auhentication
 app.add_api_route("/v1/auth", v1_auth.generate_auth_token, methods=["post"])
 
+# Application Routes
+
+## Ping Pong Routes
 app.add_api_route("/v1/ping", ping_pong.route_post, methods=["post"], dependencies=[Depends(ApiBearer())])
 app.add_api_route("/v1/ping/{word}", ping_pong.route_get, methods=["get"], dependencies=[Depends(ApiBearer())])
 app.add_api_route("/v1/ping", ping_pong.route_put, methods=["put"], dependencies=[Depends(ApiBearer())])
 app.add_api_route("/v1/ping", ping_pong.route_delete, methods=["delete"], dependencies=[Depends(ApiBearer())])
 
-
-
+## Math Routes
 app.add_api_route("/v1/calcs/twice", v1_twice.route_post, methods=["post"], dependencies=[Depends(ApiBearer())])
-
