@@ -11,7 +11,7 @@ def generate_jwt() -> bytes:
     """Function to generate a JWE token for authenticaiton
     """
     data_ = {
-        "valid_true": str(datetime.now() + timedelta(minutes=1)),
+        "valid_true": str(datetime.now() + timedelta(hours=1)),
         "resources": {
             "groups": ["get", "post"],
             "users": ["get"]

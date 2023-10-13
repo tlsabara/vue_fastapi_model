@@ -12,7 +12,8 @@ async def route_post(body_request: TwiceRequestBody) -> Any:
     logger.logger.info(f"request: passou aqui")
     if body_request.number != 0:
         return DefaulApiResponse(
-            msg=f"valor {body_request.number*2}"
+            data=body_request.number*2,
+            msg=f"success"
         )
     else:
         return HTTPException(
@@ -22,6 +23,9 @@ async def route_post(body_request: TwiceRequestBody) -> Any:
 
 
 async def route_get(number: int = Path(gt=0)) -> DefaulApiResponse:
+    """GET Route, just mutiply a number
+    """
     return DefaulApiResponse(
-        msg=f"valor: {number*2}"
+        data=number*2,
+        msg=f"success"
     )
