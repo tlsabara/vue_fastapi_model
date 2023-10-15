@@ -2,6 +2,24 @@
 
 <!--next-version-placeholder-->
 
+## v0.5.0 (2023-10-15)
+### Feature
+* Basic Path Validation ([`2c66671`](https://github.com/tlsabara/vue_fastapi_model/commit/2c666711764cec6e07ec047085cc852f90cc1b5f))
+* Cli mananger ([`0473803`](https://github.com/tlsabara/vue_fastapi_model/commit/04738035c2e74d394e28dab33be1d20238dd24c1))
+* Twice route ([`c545d30`](https://github.com/tlsabara/vue_fastapi_model/commit/c545d30f757a0c5dddac12bb02642268dacf43fb))
+* Auth with bearer 2 ([`2eee391`](https://github.com/tlsabara/vue_fastapi_model/commit/2eee391fa054f8157b93a03a7d185be672a763d2))
+* Auth with bearer ([`133893c`](https://github.com/tlsabara/vue_fastapi_model/commit/133893ca05fb07f858cfb5ac9e6d3d99cdad2ca0))
+
+### Fix
+* Teste 2 ([`d6a22a0`](https://github.com/tlsabara/vue_fastapi_model/commit/d6a22a01018f84165946b19a955f791906aafa41))
+* Testes ([`96ec0cf`](https://github.com/tlsabara/vue_fastapi_model/commit/96ec0cf78ed368ddea4773b207d357e78caaeec8))
+* Adjust on request patern ([`820b9b9`](https://github.com/tlsabara/vue_fastapi_model/commit/820b9b9eef7c2d162b497f021387b64c94845042))
+* Docker exec ([`0a2a46a`](https://github.com/tlsabara/vue_fastapi_model/commit/0a2a46a9ff99f18a64f57a66c113aa285977d8c2))
+* Routes adjusts ([`552b7f3`](https://github.com/tlsabara/vue_fastapi_model/commit/552b7f32945913e604d57de363c779a6fd395777))
+
+### Documentation
+* Adjusts on docstrings ([`36ff2b3`](https://github.com/tlsabara/vue_fastapi_model/commit/36ff2b372dbf63c29f72dda6d0dcf3a646e0c0ad))
+
 ## v0.4.1-beta.1 (2023-06-21)
 
 

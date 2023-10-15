@@ -12,7 +12,7 @@ from api.api_core.v1 import twice as v1_twice
 
 load_dotenv()
 
-__version__ = "0.4.1-beta.1"
+__version__ = "0.5.0"
 os.environ["APP_VERSION"] = __version__
 
 homolog_or_test = (
