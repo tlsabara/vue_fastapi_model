@@ -37,6 +37,7 @@ class DefaulApiResponse(BaseApiResponse):
 
         super().__init__(**kwargs)
 
+
 class ApiResposeAuthToken(DefaulApiResponse):
     """Body for response having a authentication token on body
     """
