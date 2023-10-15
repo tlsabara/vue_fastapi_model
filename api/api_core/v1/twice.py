@@ -23,7 +23,7 @@ async def route_post(body_request: TwiceRequestBody) -> Any:
 
 
 async def route_get(number: int = Path(gt=0)) -> DefaulApiResponse:
-    """GET Route, just mutiply a number
+    """GET Route, just mutiply a number, with validaiton path
     """
     return DefaulApiResponse(
         data=number*2,

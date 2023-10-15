@@ -13,34 +13,31 @@ class BaseApiResponse(BaseModel):
     metadata: dict
     data: sb_type
 
-    def __init__(self, **kwargs: any):
-        msg_ = kwargs.get("msg", "undefined")
-        data_ = kwargs.get("data", "")
-
-        kwargs.update(
-            {
-                "metadata":{
-                    "time_at": datetime.now(),
-                    "core_version": os.environ.get("APP_VERSION"),
-                    "msg": msg_,
-                },
-                "data": data_
-            }
-        )
-        super().__init__(**kwargs)
-
 
 class DefaulApiResponse(BaseApiResponse):
     """Its a basic api response
 
     All response in this system shold be like this
     """
+
     def __init__(self, **kwargs):
+        print(kwargs)
+        print('OI')
+        msg_ = kwargs.get("msg", "undefined")
+        data_ = kwargs.get("data", "")
+
+        kwargs = {
+            "metadata": {
+                "time_at": datetime.now(),
+                "core_version": os.environ.get("APP_VERSION"),
+                "msg": msg_,
+            },
+            "data": data_
+        }
+
         super().__init__(**kwargs)
 
 class ApiResposeAuthToken(DefaulApiResponse):
     """Body for response having a authentication token on body
     """
     token: str
-
-
