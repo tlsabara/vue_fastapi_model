@@ -9,6 +9,7 @@ from api.api_core import ping_pong, root
 from api.api_core.v1.auth import http_auth as v1_auth
 from api.api_core.v1.auth.bearer_control import ApiBearer
 from api.api_core.v1 import twice as v1_twice
+from api.api_core.v1 import foo as v1_foo
 
 load_dotenv()
 
@@ -49,3 +50,5 @@ app.add_api_route("/v1/ping", ping_pong.route_delete, methods=["delete"], depend
 ## Math Routes
 app.add_api_route("/v1/calcs/twice", v1_twice.route_post, methods=["post"], dependencies=[Depends(ApiBearer())])
 app.add_api_route("/v1/calcs/twice/{number}", v1_twice.route_get, methods=["get"], dependencies=[Depends(ApiBearer())])
+
+app.add_api_route("/v1/foo", v1_foo.route_get, methods=["get"], dependencies=[Depends(ApiBearer())])
