@@ -3,7 +3,7 @@
 .pytest_cache
 /.pytest_cache/
 **/.pytest_cache/
-/.idea/misc.xml
+/.idea/*
 /.idea/inspectionProfiles/profiles_settings.xml
 /.idea/inspectionProfiles/Project_Default.xml
 /.idea/vcs.xml
