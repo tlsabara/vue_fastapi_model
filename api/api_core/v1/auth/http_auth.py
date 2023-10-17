@@ -19,4 +19,4 @@ async def generate_auth_token(body_request: AuthRequestBody) -> ApiResposeAuthTo
 
     jwt_ = generate_jwt()
 
-    return ApiResposeAuthToken(token=jwt_, msg="success")
+    return ApiResposeAuthToken(token=jwt_)
