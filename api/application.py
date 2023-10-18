@@ -5,6 +5,8 @@ from dotenv import load_dotenv
 from fastapi import FastAPI, Depends
 from pydantic import BaseSettings
 
+
+from api.orm import models, db
 from api.api_core import ping_pong, root
 from api.api_core.v1.auth import http_auth as v1_auth
 from api.api_core.v1.auth.bearer_control import ApiBearer
@@ -24,6 +26,7 @@ homolog_or_test = (
 class Settings(BaseSettings):
     openapi_url: str = "/openapi.json" if homolog_or_test else ""
 
+models.OrmBase.metadata.create_all(bind=db.engine)
 
 settings = Settings()
 app = FastAPI(
