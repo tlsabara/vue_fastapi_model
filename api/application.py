@@ -12,6 +12,7 @@ from api.api_core.v1.auth import http_auth as v1_auth
 from api.api_core.v1.auth.bearer_control import ApiBearer
 from api.api_core.v1 import twice as v1_twice
 from api.api_core.v1 import foo as v1_foo
+from api.api_core.v1.fase_system import core as v1_fase
 
 load_dotenv()
 
@@ -45,13 +46,15 @@ app.add_api_route("/v1/auth", v1_auth.generate_auth_token, methods=["post"])
 # Application Routes
 
 ## Ping Pong Routes
-app.add_api_route("/v1/ping", ping_pong.route_post, methods=["post"], dependencies=[Depends(ApiBearer())])
-app.add_api_route("/v1/ping/{word}", ping_pong.route_get, methods=["get"], dependencies=[Depends(ApiBearer())])
-app.add_api_route("/v1/ping", ping_pong.route_put, methods=["put"], dependencies=[Depends(ApiBearer())])
-app.add_api_route("/v1/ping", ping_pong.route_delete, methods=["delete"], dependencies=[Depends(ApiBearer())])
+# app.add_api_route("/v1/ping", ping_pong.route_post, methods=["post"], dependencies=[Depends(ApiBearer())])
+# app.add_api_route("/v1/ping/{word}", ping_pong.route_get, methods=["get"], dependencies=[Depends(ApiBearer())])
+# app.add_api_route("/v1/ping", ping_pong.route_put, methods=["put"], dependencies=[Depends(ApiBearer())])
+# app.add_api_route("/v1/ping", ping_pong.route_delete, methods=["delete"], dependencies=[Depends(ApiBearer())])
+#
+# ## Math Routes
+# app.add_api_route("/v1/calcs/twice", v1_twice.route_post, methods=["post"], dependencies=[Depends(ApiBearer())])
+# app.add_api_route("/v1/calcs/twice/{number}", v1_twice.route_get, methods=["get"], dependencies=[Depends(ApiBearer())])
+#
+# app.add_api_route("/v1/foo", v1_foo.route_get, methods=["get"], dependencies=[Depends(ApiBearer())])
 
-## Math Routes
-app.add_api_route("/v1/calcs/twice", v1_twice.route_post, methods=["post"], dependencies=[Depends(ApiBearer())])
-app.add_api_route("/v1/calcs/twice/{number}", v1_twice.route_get, methods=["get"], dependencies=[Depends(ApiBearer())])
-
-app.add_api_route("/v1/foo", v1_foo.route_get, methods=["get"], dependencies=[Depends(ApiBearer())])
+app.add_api_route("/v1/fase/vw", v1_fase.route_get, methods=["get"], dependencies=[Depends(ApiBearer())])

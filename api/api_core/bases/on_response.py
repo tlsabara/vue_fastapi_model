@@ -33,10 +33,10 @@ class DefaulApiResponse(BaseApiResponse):
     All response in this system shold be like this
     """
     data: sb_type
-
-    def __init__(self, **kwargs):
-        data_ = kwargs.get("data", "")
-        super().__init__(**kwargs)
+    #
+    # def __init__(self, **kwargs):
+    #     data_ = kwargs.get("data", "")  #? TODO: wtf
+    #     super().__init__(**kwargs)
 
 
 class ApiResposeAuthToken(BaseApiResponse):

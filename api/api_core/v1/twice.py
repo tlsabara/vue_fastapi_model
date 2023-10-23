@@ -9,7 +9,6 @@ from api.api_core.bases.on_request import TwiceRequestBody
 async def route_post(response: Response, body_request: TwiceRequestBody) -> Any:
     """POST Route, to multiply a number
     """
-    logger.logger.info(f"request: passou aqui")
     if body_request.number != 0:
         response.status_code = status.HTTP_200_OK
         return DefaulApiResponse(
