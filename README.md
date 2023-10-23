@@ -10,5 +10,4 @@ Montar um sistema de avaliação para pequenos testes de aptidão técnica.
 DEV_ENV=
 DATABASE_URL=
 APP_SECURITY_KEY=
-DB_SICLO=
 ```
